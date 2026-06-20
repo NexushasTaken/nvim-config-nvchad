@@ -1,6 +1,7 @@
 return {
   { -- Theme
     "folke/tokyonight.nvim",
+    enabled = false,
     lazy = false,
     priority = 100,
     opts = function()
