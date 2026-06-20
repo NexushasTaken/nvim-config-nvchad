@@ -81,8 +81,17 @@ local config = {
 
 vim.diagnostic.config(config)
 
-local servers = { "csharp-language-server" }
-vim.lsp.config("csharp-language-server", require("lspconfigs.csharp_ls"))
-vim.lsp.enable(servers)
+local servers = {
+  neocmake = {},
+  csharp_ls = {},
+  clangd = {},
+}
+
+for name, opts in pairs(servers) do
+  local server_opts = require("lspconfigs." .. name)
+  opts = vim.tbl_deep_extend("force", server_opts, opts)
+  vim.lsp.config(name, opts)
+  vim.lsp.enable(name)
+end
 
 -- read :h vim.lsp.config for changing options of lsp servers

@@ -9,8 +9,10 @@ local options = {
     rust = { "rustfmt" },
     javascript = { "prettierd", "prettier" },
     typst = { "prettypst", "typstyle" },
-    c = "clang-format",
-    cpp = "clang-format",
+    c = { "clang-format" },
+    cpp = { "clang-format" },
+    json = { "jq" },
+    cmake = { "gersemi", "cmakelang" },
   },
   default_format_opts = {
     lsp_format = "fallback",
