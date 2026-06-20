@@ -1,4 +1,6 @@
 return {
+  { "hrsh7th/nvim-cmp", enabled = false },
+
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -11,6 +13,26 @@ return {
     config = function()
       require "configs.lspconfig"
     end,
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    opts = function()
+      return require "configs.nvimtree"
+    end,
+  },
+
+  { -- Mini
+    "echasnovski/mini.nvim",
+    lazy = false,
+    config = require("configs.mini"),
+  },
+
+  { -- Text case
+    "johmsalas/text-case.nvim",
+    lazy = false,
+    config = true,
   },
 
   -- test new blink
