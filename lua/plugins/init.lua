@@ -1,6 +1,4 @@
 return {
-  { "hrsh7th/nvim-cmp", enabled = false },
-
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -37,6 +35,7 @@ return {
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
+  { "hrsh7th/nvim-cmp", enabled = false },
 
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
