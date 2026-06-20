@@ -11,11 +11,11 @@ map("n", "zZ", function()
   if vim.opt.foldmethod:get() == "manual" then
     vim.opt.foldmethod = "expr"
     vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-    print "fold method: expr"
+    print("fold method: expr")
   elseif vim.opt.foldmethod:get() == "expr" then
     vim.opt.foldmethod = "manual"
     vim.opt.foldexpr = "0"
-    print "fold method: manual"
+    print("fold method: manual")
   end
 end)
 
@@ -38,10 +38,10 @@ end
 
 map("n", "do", vim.diagnostic.open_float)
 map("n", "<leader>lj", function()
-  vim.diagnostic.jump { count = 1 }
+  vim.diagnostic.jump({ count = 1 })
 end)
 map("n", "<leader>lk", function()
-  vim.diagnostic.jump { count = -1 }
+  vim.diagnostic.jump({ count = -1 })
 end)
 
 do
@@ -49,8 +49,8 @@ do
 
   if ok then
     map("n", "<leader>lf", function()
-      if not conform.format { async = true } then
-        vim.lsp.buf.format { async = true }
+      if not conform.format({ async = true }) then
+        vim.lsp.buf.format({ async = true })
       end
     end, { noremap = true, desc = "Format" })
   end
@@ -90,100 +90,100 @@ do
     end
 
     map("n", "<leader>au", function()
-      textcase.current_word "to_upper_case"
+      textcase.current_word("to_upper_case")
       remove_w()
     end, { desc = "TO UPPER CASE" })
     map("n", "<leader>al", function()
-      textcase.current_word "to_lower_case"
+      textcase.current_word("to_lower_case")
       remove_w()
     end, { desc = "to lower case" })
     map("n", "<leader>as", function()
-      textcase.current_word "to_snake_case"
+      textcase.current_word("to_snake_case")
       remove_w()
     end, { desc = "to_snake_case" })
     map("n", "<leader>ad", function()
-      textcase.current_word "to_dash_case"
+      textcase.current_word("to_dash_case")
       remove_w()
     end, { desc = "to.dash.case" })
     map("n", "<leader>an", function()
-      textcase.current_word "to_constant_case"
+      textcase.current_word("to_constant_case")
       remove_w()
     end, { desc = "TO_CONSTANT_CASE" })
     map("n", "<leader>ad", function()
-      textcase.current_word "to_dot_case"
+      textcase.current_word("to_dot_case")
       remove_w()
     end, { desc = "to.dot.case" })
     map("n", "<leader>a,", function()
-      textcase.current_word "to_comma_case"
+      textcase.current_word("to_comma_case")
       remove_w()
     end, { desc = "to,comma,case" })
     map("n", "<leader>aa", function()
-      textcase.current_word "to_phrase_case"
+      textcase.current_word("to_phrase_case")
       remove_w()
     end, { desc = "To phrase case" })
     map("n", "<leader>ac", function()
-      textcase.current_word "to_camel_case"
+      textcase.current_word("to_camel_case")
       remove_w()
     end, { desc = "toCamelCase" })
     map("n", "<leader>ap", function()
-      textcase.current_word "to_pascal_case"
+      textcase.current_word("to_pascal_case")
       remove_w()
     end, { desc = "ToPascalCase" })
     map("n", "<leader>at", function()
-      textcase.current_word "to_title_case"
+      textcase.current_word("to_title_case")
       remove_w()
     end, { desc = "To Title Case" })
     map("n", "<leader>af", function()
-      textcase.current_word "to_path_case"
+      textcase.current_word("to_path_case")
       remove_w()
     end, { desc = "to/path/case" })
 
     map("v", "<leader>au", function()
-      textcase.current_word "to_upper_case"
+      textcase.current_word("to_upper_case")
       remove_w()
     end, { desc = "TO UPPER CASE" })
     map("v", "<leader>al", function()
-      textcase.current_word "to_lower_case"
+      textcase.current_word("to_lower_case")
       remove_w()
     end, { desc = "to lower case" })
     map("v", "<leader>as", function()
-      textcase.current_word "to_snake_case"
+      textcase.current_word("to_snake_case")
       remove_w()
     end, { desc = "to_snake_case" })
     map("v", "<leader>ad", function()
-      textcase.current_word "to_dash_case"
+      textcase.current_word("to_dash_case")
       remove_w()
     end, { desc = "to.dash.case" })
     map("v", "<leader>an", function()
-      textcase.current_word "to_constant_case"
+      textcase.current_word("to_constant_case")
       remove_w()
     end, { desc = "TO_CONSTANT_CASE" })
     map("v", "<leader>ad", function()
-      textcase.current_word "to_dot_case"
+      textcase.current_word("to_dot_case")
       remove_w()
     end, { desc = "to.dot.case" })
     map("v", "<leader>a,", function()
-      textcase.current_word "to_comma_case"
+      textcase.current_word("to_comma_case")
       remove_w()
     end, { desc = "to,comma,case" })
     map("v", "<leader>aa", function()
-      textcase.current_word "to_phrase_case"
+      textcase.current_word("to_phrase_case")
       remove_w()
     end, { desc = "To phrase case" })
     map("v", "<leader>ac", function()
-      textcase.current_word "to_camel_case"
+      textcase.current_word("to_camel_case")
       remove_w()
     end, { desc = "toCamelCase" })
     map("v", "<leader>ap", function()
-      textcase.current_word "to_pascal_case"
+      textcase.current_word("to_pascal_case")
       remove_w()
     end, { desc = "ToPascalCase" })
     map("v", "<leader>at", function()
-      textcase.current_word "to_title_case"
+      textcase.current_word("to_title_case")
       remove_w()
     end, { desc = "To Title Case" })
     map("v", "<leader>af", function()
-      textcase.current_word "to_path_case"
+      textcase.current_word("to_path_case")
       remove_w()
     end, { desc = "to/path/case" })
 

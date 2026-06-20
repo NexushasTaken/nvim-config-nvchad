@@ -19,7 +19,7 @@ local function inside_comment_block()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   row = row - 1
   for id, node, _ in query:iter_captures(node_under_cursor, 0, row, row + 1) do
-    if query.captures[id]:find "comment" then
+    if query.captures[id]:find("comment") then
       local start_row, start_col, end_row, end_col = node:range()
       if start_row <= row and row <= end_row then
         if start_row == row and end_row == row then
@@ -83,13 +83,13 @@ return {
         "L3MON4D3/LuaSnip",
         config = function()
           local lazy_load = function(snip)
-            require("luasnip/loaders/from_vscode").lazy_load {
-              paths = { vim.fn.stdpath "config" .. "/snippets/" .. snip },
-            }
+            require("luasnip/loaders/from_vscode").lazy_load({
+              paths = { vim.fn.stdpath("config") .. "/snippets/" .. snip },
+            })
           end
 
-          lazy_load "friendly-snippets"
-          lazy_load "odoo-snippets"
+          lazy_load("friendly-snippets")
+          lazy_load("odoo-snippets")
         end,
       },
       -- "rafamadriz/friendly-snippets",
@@ -132,7 +132,7 @@ return {
       },
 
       appearance = {
-        highlight_ns = vim.api.nvim_create_namespace "blink_cmp",
+        highlight_ns = vim.api.nvim_create_namespace("blink_cmp"),
         -- Sets the fallback highlight groups to nvim-cmp"s highlight groups
         -- Useful for when your theme doesn"t support blink.cmp
         -- Will be removed in a future release
@@ -157,7 +157,7 @@ return {
             if cmp.is_visible() then
               cmp.hide()
             end
-            local luasnip = require "luasnip"
+            local luasnip = require("luasnip")
             if luasnip.in_snippet() then
               luasnip.unlink_current()
             end
@@ -209,7 +209,7 @@ return {
         },
         ["<C-a>"] = {
           function(_)
-            vim.notify(vim.inspect(require "blink.cmp.types"))
+            vim.notify(vim.inspect(require("blink.cmp.types")))
           end,
         },
       },
@@ -284,7 +284,7 @@ return {
             min_keyword_length = 3,
             opts = {
               dictionary_files = { "/usr/share/wordnet/dict" },
-              dictionary_directories = { vim.fn.stdpath "config" .. "/dictionary/" },
+              dictionary_directories = { vim.fn.stdpath("config") .. "/dictionary/" },
             },
           },
           conventional_commits = {
@@ -301,9 +301,9 @@ return {
           cmdline = {
             -- ignores cmdline completions when executing shell commands
             enabled = function()
-              return vim.fn.has "win32" == 0
+              return vim.fn.has("win32") == 0
                 or vim.fn.getcmdtype() ~= ":"
-                or not vim.fn.getcmdline():match "^[%%0-9,'<>%-]*!"
+                or not vim.fn.getcmdline():match("^[%%0-9,'<>%-]*!")
             end,
           },
           buffer = {
@@ -311,10 +311,10 @@ return {
             transform_items = function(a, items)
               local keyword = a.get_keyword()
               local correct, case
-              if keyword:match "^%l" then
+              if keyword:match("^%l") then
                 correct = "^%u%l+$"
                 case = string.lower
-              elseif keyword:match "^%u" then
+              elseif keyword:match("^%u") then
                 correct = "^%l+$"
                 case = string.upper
               else
@@ -353,7 +353,7 @@ return {
           function(a, b)
             local variable_kind_id = require("blink.cmp.types").CompletionItemKind.Variable
             if a.kind == variable_kind_id and b.kind == variable_kind_id then
-              return a.source_id == "env";
+              return a.source_id == "env"
             end
           end,
         },

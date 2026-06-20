@@ -4,7 +4,7 @@ return {
     lazy = false,
     priority = 100,
     opts = function()
-      require("tokyonight").setup {
+      require("tokyonight").setup({
         style = "night",
         styles = {
           comments = { italic = false },
@@ -13,7 +13,7 @@ return {
         on_colors = function(_) end,
         on_highlights = function(hl, c)
           local colors = require("tokyonight.colors").setup()
-          local util = require "tokyonight.util"
+          local util = require("tokyonight.util")
           hl.Todo = {
             fg = hl.Todo.bg,
             bg = hl.Normal.bg,
@@ -27,16 +27,16 @@ return {
           }
           hl.RenderMarkdownCodeInline = markdown_code_inline
           hl["@markup.raw.markdown_inline"] = markdown_code_inline
-          for _, group in ipairs {
+          for _, group in ipairs({
             "DiagnosticUnderlineError",
             "DiagnosticUnderlineWarn",
             "DiagnosticUnderlineInfo",
             "DiagnosticUnderlineHint",
-          } do
+          }) do
             hl[group] = { underline = true, undercurl = false, sp = c.red }
           end
         end,
-      }
+      })
 
       -- vim.cmd.colorscheme "tokyonight-night"
     end,

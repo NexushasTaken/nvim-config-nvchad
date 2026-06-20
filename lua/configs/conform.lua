@@ -1,4 +1,4 @@
-local data_path = vim.fn.stdpath "data"
+local data_path = vim.fn.stdpath("data")
 local meson_path = data_path .. "/mason/bin"
 vim.env.PATH = vim.env.PATH .. ":" .. meson_path
 

@@ -1,4 +1,4 @@
-local nvconfig = require "nvchad.configs.lspconfig"
+local nvconfig = require("nvchad.configs.lspconfig")
 local map = vim.keymap.set
 
 nvconfig.on_attach = function(_, bufnr)
@@ -6,25 +6,25 @@ nvconfig.on_attach = function(_, bufnr)
     return { buffer = bufnr, desc = "LSP " .. desc }
   end
 
-  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Add workspace folder")
-  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Remove workspace folder")
+  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts("Add workspace folder"))
+  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts("Remove workspace folder"))
 
   map("n", "<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, opts "List workspace folders")
+  end, opts("List workspace folders"))
 
-  map("n", "K", vim.lsp.buf.hover, opts "Hover")
-  map("n", "gD", vim.lsp.buf.definition, opts "Go to definition")
-  map("n", "gd", vim.lsp.buf.declaration, opts "Go to declaration")
-  map("n", "gr", vim.lsp.buf.references, opts "References")
-  map("n", "<leader>li", vim.lsp.buf.implementation, opts "Go to implementation")
-  map("n", "<leader>la", vim.lsp.buf.code_action, opts "Open code actions")
+  map("n", "K", vim.lsp.buf.hover, opts("Hover"))
+  map("n", "gD", vim.lsp.buf.definition, opts("Go to definition"))
+  map("n", "gd", vim.lsp.buf.declaration, opts("Go to declaration"))
+  map("n", "gr", vim.lsp.buf.references, opts("References"))
+  map("n", "<leader>li", vim.lsp.buf.implementation, opts("Go to implementation"))
+  map("n", "<leader>la", vim.lsp.buf.code_action, opts("Open code actions"))
   -- map("n", "<leader>lr", vim.lsp.buf.rename, opts "");
-  map("n", "<leader>lr", require "nvchad.lsp.renamer", opts "NvRenamer")
-  map("n", "<leader>ls", vim.lsp.buf.signature_help, opts "Signature help")
-  map("n", "<leader>lq", vim.diagnostic.setloclist, opts "setloclist")
-  map("n", "<leader>lh", vim.lsp.buf.document_highlight, opts "Document highlight")
-  map("n", "<leader>lt", vim.lsp.buf.type_definition, opts "Go to type definition")
+  map("n", "<leader>lr", require("nvchad.lsp.renamer"), opts("NvRenamer"))
+  map("n", "<leader>ls", vim.lsp.buf.signature_help, opts("Signature help"))
+  map("n", "<leader>lq", vim.diagnostic.setloclist, opts("setloclist"))
+  map("n", "<leader>lh", vim.lsp.buf.document_highlight, opts("Document highlight"))
+  map("n", "<leader>lt", vim.lsp.buf.type_definition, opts("Go to type definition"))
 
   -- vim.api.nvim_create_autocmd({"CursorMoved"}, {
   --   buffer = bufnr,
@@ -82,7 +82,7 @@ local config = {
 vim.diagnostic.config(config)
 
 local servers = { "csharp-language-server" }
-vim.lsp.config("csharp-language-server", require "lspconfigs.csharp_ls")
+vim.lsp.config("csharp-language-server", require("lspconfigs.csharp_ls"))
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers

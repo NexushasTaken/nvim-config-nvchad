@@ -1,4 +1,4 @@
-require "nvchad.options"
+require("nvchad.options")
 
 local o = vim.opt
 local g = vim.g
@@ -51,9 +51,9 @@ o.expandtab = vim.bo.filetype ~= "make"
 o.cinoptions = "l1N-s,E-s,t0,U1"
 o.formatexpr = [[v:lua.require("conform").formatexpr()]]
 
-o.matchpairs:append "<:>"
-o.runtimepath:remove "/usr/share/vim/vimfiles" -- separate vim plugins from neovim in case vim still in use
-vim.cmd.syntax "clear"
+o.matchpairs:append("<:>")
+o.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
+vim.cmd.syntax("clear")
 
 g.python_recommended_style = 0
 g.rust_recommended_style = 0
