@@ -82,9 +82,9 @@ return {
     set("n", "a", api.fs.create, opts("Create"))
     --set("n", "bd",    api.marks.bulk.delete,              opts("Delete Bookmarked"));
     --set("n", "bmv",   api.marks.bulk.move,                opts("Move Bookmarked"));
-    set("n", "B", api.tree.toggle_no_buffer_filter, opts("Toggle Filter: No Buffer"))
+    set("n", "B", api.filter.no_buffer.toggle, opts("Toggle Filter: No Buffer"))
     set("n", "c", api.fs.copy.node, opts("Copy"))
-    set("n", "C", api.tree.toggle_git_clean_filter, opts("Toggle Filter: Git Clean"))
+    set("n", "C", api.filter.git.clean.toggle, opts("Toggle Filter: Git Clean"))
     set("n", "[c", api.node.navigate.git.prev, opts("Prev Git"))
     set("n", "]c", api.node.navigate.git.next, opts("Next Git"))
     set("n", "d", api.fs.remove, opts("Delete"))
@@ -93,12 +93,12 @@ return {
     --set("n", "e",     api.fs.rename_basename,             opts("Rename: Basename"));
     set("n", "]e", api.node.navigate.diagnostics.next, opts("Next Diagnostic"))
     set("n", "[e", api.node.navigate.diagnostics.prev, opts("Prev Diagnostic"))
-    set("n", "F", api.live_filter.clear, opts("Clean Filter"))
-    set("n", "f", api.live_filter.start, opts("Filter"))
+    set("n", "F", api.filter.live.clear, opts("Clean Filter"))
+    set("n", "f", api.filter.live.start, opts("Filter"))
     set("n", "g?", api.tree.toggle_help, opts("Help"))
     set("n", "gy", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
-    set("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Filter: Dotfiles"))
-    set("n", "I", api.tree.toggle_gitignore_filter, opts("Toggle Filter: Git Ignore"))
+    set("n", "H", api.filter.dotfiles.toggle, opts("Toggle Filter: Dotfiles"))
+    set("n", "I", api.filter.git.ignored.toggle, opts("Toggle Filter: Git Ignore"))
     set("n", "J", api.node.navigate.sibling.last, opts("Last Sibling"))
     set("n", "K", api.node.navigate.sibling.first, opts("First Sibling"))
     --set("n", "m",     api.marks.toggle,                   opts("Toggle Bookmark"));
@@ -110,7 +110,7 @@ return {
     set("n", "r", api.fs.rename, opts("Rename"))
     set("n", "R", api.tree.reload, opts("Refresh"))
     set("n", "S", api.tree.search_node, opts("Search"))
-    set("n", "U", api.tree.toggle_custom_filter, opts("Toggle Filter: Hidden"))
+    set("n", "U", api.filter.custom.toggle, opts("Toggle Filter: Hidden"))
     set("n", "W", api.tree.collapse_all, opts("Collapse All"))
     set("n", "x", api.fs.cut, opts("Cut"))
     set("n", "y", api.fs.copy.filename, opts("Copy Name"))
