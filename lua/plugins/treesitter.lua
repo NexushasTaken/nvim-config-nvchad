@@ -1,7 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    -- branch = "master",
+    branch = "main",
     -- config = require("configs.treesitter"),
     dependencies = {
       { -- Auto close tag
