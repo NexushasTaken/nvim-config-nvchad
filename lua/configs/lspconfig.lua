@@ -1,6 +1,8 @@
 local nvconfig = require("nvchad.configs.lspconfig")
 local map = vim.keymap.set
 
+nvconfig.defaults()
+
 nvconfig.on_attach = function(_, bufnr)
   local function opts(desc)
     return { buffer = bufnr, desc = "LSP " .. desc }
@@ -48,8 +50,6 @@ nvconfig.on_attach = function(_, bufnr)
   -- end
 end
 
-nvconfig.defaults()
-
 local signs = {
   { name = "DiagnosticSignError", text = "" },
   { name = "DiagnosticSignWarn", text = "" },
@@ -83,8 +83,44 @@ vim.diagnostic.config(config)
 
 local servers = {
   neocmake = {},
-  csharp_ls = {},
+  -- ols = {},
+  bashls = {},
+  lua_ls = {},
+  jsonls = {},
+  -- yamlls = {},
   clangd = {},
+  jdtls = {},
+  -- omnisharp = {},
+  -- pyright = {},
+  html = {},
+  rust_analyzer = {},
+  -- cmake = {},
+  ts_ls = {},
+  -- asm_lsp = {},
+  -- gopls = {},
+  cssls = {},
+  -- serve_d = {},
+  gdscript = {},
+  -- svelte = {},
+  -- nimls = {},
+  zls = {},
+  -- c3_lsp = {},
+  -- glsl_analyzer = {},
+  -- v_analyzer = {},
+  -- qmlls = {
+  --   cmd = { "qmlls", "-E" },
+  -- },
+  -- basedpyright = {},
+  pylsp = {},
+  -- tinymist = {},
+  -- marksman = {},
+  -- vala_ls = {},
+  csharp_ls = {},
+  teal_ls = {},
+  -- denols = {},
+  eslint = {},
+  -- intelephense = {},
+  tailwindcss = {},
 }
 
 for name, opts in pairs(servers) do

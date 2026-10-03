@@ -13,6 +13,7 @@ local options = {
     cpp = { "clang-format" },
     json = { "jq" },
     cmake = { "gersemi", "cmakelang" },
+    sh = { "shfmt", "beautysh" },
   },
   default_format_opts = {
     lsp_format = "fallback",

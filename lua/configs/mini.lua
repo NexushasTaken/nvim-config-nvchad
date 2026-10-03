@@ -90,7 +90,7 @@ local function statusline()
 end
 
 return function()
-  comment()
+  -- comment()
   mini_pairs()
   splitjoin()
   surround()

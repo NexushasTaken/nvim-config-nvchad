@@ -36,14 +36,4 @@ return {
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
   { "hrsh7th/nvim-cmp", enabled = false },
-
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
 }
