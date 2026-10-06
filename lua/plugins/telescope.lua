@@ -78,6 +78,24 @@ return {
         builtin.tags()
       end, { noremap = true })
 
+      map("n", "<leader>dc", function()
+        builtin.buffers(themes.get_ivy({
+          previewer = true,
+          show_all_buffers = true,
+          sort_lastused = true,
+          shorten_path = true,
+          attach_mappings = function(prompt_bufnr, attach_map)
+            local action_state = require("telescope.actions.state")
+            attach_map("i", "<C-d>", function()
+              action_state.get_current_picker(prompt_bufnr):delete_selection(function(selection)
+                vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+              end)
+            end)
+            return true
+          end,
+        }))
+      end, { noremap = true, desc = "telescope buffers (delete with <C-d>)" })
+
       scope.setup({
         pickers = {
           find_files = { theme = "ivy2" },
@@ -90,9 +108,12 @@ return {
           layout_strategy = "vertical",
         },
       })
+
+      pcall(scope.load_extension, "fzf")
     end,
     dependencies = {
       "nvim-lua/plenary.nvim", -- Some tools for Lua?
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
   },
 }
