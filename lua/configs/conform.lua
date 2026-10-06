@@ -14,6 +14,7 @@ local options = {
     json = { "jq" },
     cmake = { "gersemi", "cmakelang" },
     sh = { "shfmt", "beautysh" },
+    cs = { "csharpier", "clang-format" },
   },
   default_format_opts = {
     lsp_format = "fallback",
