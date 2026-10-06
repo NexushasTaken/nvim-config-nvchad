@@ -45,16 +45,6 @@ return {
             require("nvchad.configs.luasnip")
           end,
         },
-        config = function()
-          local lazy_load = function(snip)
-            require("luasnip/loaders/from_vscode").lazy_load({
-              paths = { vim.fn.stdpath("config") .. "/snippets/" .. snip },
-            })
-          end
-
-          lazy_load("friendly-snippets")
-          lazy_load("odoo-snippets")
-        end,
       },
       -- "rafamadriz/friendly-snippets",
       {

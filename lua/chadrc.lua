@@ -8,10 +8,21 @@ local M = {}
 M.base46 = {
   theme = "tokyonight",
 
-  -- hl_override = {
-  --   Comment = { italic = true },
-  --   ["@comment"] = { italic = true },
-  -- },
+  -- groups that base46 already defines
+  hl_override = {
+    Todo = { fg = "yellow", bg = "black" },
+    Folded = { fg = "grey_fg", bg = "NONE" },
+  },
+
+  -- groups that base46 does not define
+  hl_add = {
+    RenderMarkdownCodeInline = { fg = "blue", bg = "one_bg" },
+    ["@markup.raw.markdown_inline"] = { fg = "blue", bg = "one_bg" },
+    DiagnosticUnderlineError = { underline = true, undercurl = false, sp = "red" },
+    DiagnosticUnderlineWarn = { underline = true, undercurl = false, sp = "red" },
+    DiagnosticUnderlineInfo = { underline = true, undercurl = false, sp = "red" },
+    DiagnosticUnderlineHint = { underline = true, undercurl = false, sp = "red" },
+  },
 }
 
 -- M.nvdash = { load_on_startup = true }
