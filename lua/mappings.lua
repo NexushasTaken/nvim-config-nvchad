@@ -6,6 +6,37 @@ map("n", "<leader>q", ":qa!<cr>")
 map("n", "<esc>", ":noh<cr>", { desc = "general clear highlights" })
 map("n", "<leader>n", ":NvimTreeFocus<cr>", { desc = "nvimtree focus window" })
 map("n", "<leader>o", ":Oil<cr>")
+map("n", "st", ":tabnew ", { desc = "new tab (prompt)" })
+
+map("n", "<M-L>", ":vertical resize +1<cr>", { desc = "width +1" })
+map("n", "<M-H>", ":vertical resize -1<cr>", { desc = "width -1" })
+map("n", "<M-K>", ":resize +1<cr>", { desc = "height +1" })
+map("n", "<M-J>", ":resize -1<cr>", { desc = "height -1" })
+
+map("n", "<leader>cl", function()
+  if vim.o.langmap == "" then
+    vim.o.langmap = "nir;jkl,jkl;nir,NIR;JKL,JKL;NIR"
+    print("Layout: Colemak Niro")
+  else
+    vim.o.langmap = ""
+    print("Layout: QWERTY")
+  end
+end, { desc = "toggle keyboard layout" })
+
+-- strip trailing whitespace and leading/trailing blank lines, then write
+map("n", "<leader>t", function()
+  if #vim.fn.bufname("%") == 0 then
+    return
+  end
+
+  local view = vim.fn.winsaveview()
+  for _, pattern in ipairs({ [[%s/\s\+$//e]], [[%s/\%^\n\+//]], [[%s/\($\n\s*\)\+\%$//]] }) do
+    vim.api.nvim_exec2("keepjumps keeppatterns silent! " .. pattern, { output = false })
+  end
+  vim.fn.winrestview(view)
+
+  vim.api.nvim_exec2("silent! write", { output = false })
+end, { desc = "trim whitespace and write" })
 
 map("n", "zZ", function()
   if vim.opt.foldmethod:get() == "manual" then
